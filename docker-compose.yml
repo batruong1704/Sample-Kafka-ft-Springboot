@@ -1,5 +1,6 @@
 services:
   zookeeper:
+    container_name: zookeeper
     image: confluentinc/cp-zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
@@ -7,8 +8,11 @@ services:
     ports:
       - 2181:2181
     restart: "on-failure"
+    networks:
+      - app_network
 
   kafka-1:
+    container_name: kafka-1
     image: confluentinc/cp-kafka
     depends_on:
       - zookeeper
@@ -22,8 +26,11 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+    networks:
+      - app_network
 
   kafka-2:
+    container_name: kafka-2
     image: confluentinc/cp-kafka
     depends_on:
       - zookeeper
@@ -37,8 +44,11 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+    networks:
+      - app_network
 
   kafka-3:
+    container_name: kafka-3
     image: confluentinc/cp-kafka
     depends_on:
       - zookeeper
@@ -52,8 +62,11 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+    networks:
+      - app_network
 
   db:
+    container_name: mysql
     image: mysql:8.0.38
     command: --default-authentication-plugin=mysql_native_password
     restart: always
@@ -63,11 +76,9 @@ services:
     ports:
       - "3306:3306"
     volumes:
-#      - mysql_data:/var/lib/mysql
-      - ./db/17102024.sql:/docker-entrypoint-initdb.d/17102024.sql
-      - ./db/my.cnf:/etc/mysql/my.cnf
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - mysql_network
+      - app_network
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 10s
@@ -76,6 +87,7 @@ services:
       start_period: 30s
 
   phpmyadmin:
+    container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
     restart: always
     ports:
@@ -88,41 +100,81 @@ services:
     depends_on:
       - db
     networks:
-      - mysql_network
-        
-# auth-service:
-#   build: ./auth-service
-#   ports:
-#     - 8080:8080
-#   environment:
-#     SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka-1:29092,kafka-2:29093,kafka-3:29094
-#   depends_on:
-#     - kafka-1
-#     - kafka-2
-#     - kafka-3
+      - app_network
 
-# database-service:
-#   build: ./database-service
-#   ports:
-#     - 8081:8081
-#   environment:
-#     SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka-1:29092,kafka-2:29093,kafka-3:29094
-#   depends_on:
-#     - kafka-1
-#     - kafka-2
-#     - kafka-3
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+    container_name: elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - cluster.name=es-docker-cluster
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - app_network
 
-# history-service:
-#   build: ./history-service
-#   ports:
-#     - 8082:8082
-#   environment:
-#     SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka-1:29092,kafka-2:29093,kafka-3:29094
-#   depends_on:
-#     - kafka-1
-#     - kafka-2
-#     - kafka-3
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.15.0
+    container_name: logstash
+    volumes:
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+      - ./auth-service/logs:/auth-service/logs:ro
+      - ./history-service/logs:/history-service/logs:ro
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - app_network
+    depends_on:
+      - elasticsearch
+      - kafka-1
+      - kafka-2
+      - kafka-3
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.15.0
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    networks:
+      - app_network
+    depends_on:
+      - elasticsearch
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.15.0
+    user: root
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./logs:/logs:ro
+    command: ["--strict.perms=false"]
+    depends_on:
+      - kafka-1
+      - kafka-2
+      - kafka-3
+      - logstash
+    networks:
+      - app_network
 
 networks:
-  mysql_network:
+  app_network:
     driver: bridge
+
+volumes:
+  mysql_data:
+  elasticsearch_data:

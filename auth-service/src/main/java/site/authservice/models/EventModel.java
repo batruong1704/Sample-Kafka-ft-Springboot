@@ -18,13 +18,13 @@ public class EventModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "id_user")
+    @Column(name = "idUser")
     private int idUser;
 
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "time", nullable = false)
+    @Column(name = "timeCreate", nullable = false)
     private LocalDateTime timeCreate;
 
 }

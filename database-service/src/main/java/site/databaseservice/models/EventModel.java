@@ -1,5 +1,6 @@
 package site.databaseservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,19 +13,20 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name = "event")
 @Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EventModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "id_user")
+    @Column(name = "idUser")
     private int idUser;
 
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "time", nullable = false)
+    @Column(name = "timeCreate", nullable = false)
     private LocalDateTime timeCreate;
 
 }

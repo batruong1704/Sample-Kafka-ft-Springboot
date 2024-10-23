@@ -1,0 +1,27 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /auth-service/logs/*.log
+    - /history-service/logs/*.log
+  json.keys_under_root: true
+  json.add_error_key: true
+  json.message_key: message
+
+processors:
+- decode_json_fields:
+    fields: ["message"]
+    target: "json"
+    add_error_key: true
+    when:
+      contains:
+        message: "{"  # Chỉ decode khi message có dấu hiệu là JSON
+
+output.kafka:
+  hosts: ["kafka-1:29092", "kafka-2:29093", "kafka-3:29094"]
+  topic: 'logs'
+  partition.round_robin:
+    reachable_only: false
+  required_acks: 1
+  compression: gzip
+  max_message_bytes: 1000000

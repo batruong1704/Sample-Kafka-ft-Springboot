@@ -1,0 +1,241 @@
+22-10-2024 13:13:26.564 [restartedMain] INFO  s.authservice.AuthServiceApplication.logStarting - Starting AuthServiceApplication using Java 17.0.12 with PID 18600 (C:\Users\batru\WorkSpace\SpringSpace\Spring ft Kafka\auth-service\target\classes started by buck in C:\Users\batru\WorkSpace\SpringSpace\Spring ft Kafka\auth-service)
+22-10-2024 13:13:26.572 [restartedMain] INFO  s.authservice.AuthServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+22-10-2024 13:13:26.625 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+22-10-2024 13:13:26.626 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+22-10-2024 13:13:27.439 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+22-10-2024 13:13:27.539 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 83 ms. Found 2 JPA repository interfaces.
+22-10-2024 13:13:28.684 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port 8080 (http)
+22-10-2024 13:13:28.696 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+22-10-2024 13:13:28.699 [restartedMain] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+22-10-2024 13:13:28.699 [restartedMain] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.30]
+22-10-2024 13:13:28.760 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+22-10-2024 13:13:28.761 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2133 ms
+22-10-2024 13:13:28.960 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+22-10-2024 13:13:29.059 [restartedMain] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.5.3.Final
+22-10-2024 13:13:29.116 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator.initiateService - HHH000026: Second-level cache disabled
+22-10-2024 13:13:29.556 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+22-10-2024 13:13:29.597 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+22-10-2024 13:13:30.058 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2955c0d1
+22-10-2024 13:13:30.061 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+22-10-2024 13:13:30.133 [restartedMain] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+22-10-2024 13:13:30.136 [restartedMain] WARN  org.hibernate.orm.deprecation.logSelectedDialect - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+22-10-2024 13:13:31.478 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+22-10-2024 13:13:31.485 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+22-10-2024 13:13:32.231 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+22-10-2024 13:13:32.773 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+22-10-2024 13:13:32.824 [restartedMain] INFO  o.a.k.c.admin.AdminClientConfig.logAll - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = auth-service-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+22-10-2024 13:13:32.961 [restartedMain] INFO  o.a.kafka.common.utils.AppInfoParser.<init> - Kafka version: 3.7.1
+22-10-2024 13:13:32.961 [restartedMain] INFO  o.a.kafka.common.utils.AppInfoParser.<init> - Kafka commitId: e2494e6ffb89f828
+22-10-2024 13:13:32.961 [restartedMain] INFO  o.a.kafka.common.utils.AppInfoParser.<init> - Kafka startTimeMs: 1729577612960
+22-10-2024 13:13:34.155 [kafka-admin-client-thread | auth-service-admin-0] INFO  o.a.kafka.common.utils.AppInfoParser.unregisterAppInfo - App info kafka.admin.client for auth-service-admin-0 unregistered
+22-10-2024 13:13:34.162 [kafka-admin-client-thread | auth-service-admin-0] INFO  o.a.kafka.common.metrics.Metrics.close - Metrics scheduler closed
+22-10-2024 13:13:34.163 [kafka-admin-client-thread | auth-service-admin-0] INFO  o.a.kafka.common.metrics.Metrics.close - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+22-10-2024 13:13:34.163 [kafka-admin-client-thread | auth-service-admin-0] INFO  o.a.kafka.common.metrics.Metrics.close - Metrics reporters closed
+22-10-2024 13:13:34.178 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+22-10-2024 13:13:34.215 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port 8080 (http) with context path '/'
+22-10-2024 13:13:34.233 [restartedMain] INFO  s.authservice.AuthServiceApplication.logStarted - Started AuthServiceApplication in 8.26 seconds (process running for 11.819)
+22-10-2024 13:14:51.047 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+22-10-2024 13:14:51.056 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+22-10-2024 13:14:51.107 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 50 ms
+22-10-2024 13:14:51.498 [http-nio-8080-exec-1] INFO  s.a.controller.UserController.login - API login called
+22-10-2024 13:14:52.340 [http-nio-8080-exec-1] INFO  s.a.controller.UserController.login - Data:
+	Username: admin
+	Password: admin
+22-10-2024 13:14:52.406 [http-nio-8080-exec-1] INFO  o.a.k.c.producer.ProducerConfig.logAll - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = auth-service-producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 1
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+22-10-2024 13:14:52.486 [http-nio-8080-exec-1] INFO  o.a.k.c.t.i.KafkaMetricsCollector.init - initializing Kafka metrics collector
+22-10-2024 13:14:52.536 [http-nio-8080-exec-1] INFO  o.a.k.clients.producer.KafkaProducer.configureTransactionState - [Producer clientId=auth-service-producer-1] Instantiated an idempotent producer.
+22-10-2024 13:14:52.604 [http-nio-8080-exec-1] INFO  o.a.k.c.producer.ProducerConfig.logUnused - These configurations '[spring.json.trusted.packages]' were supplied but are not used yet.
+22-10-2024 13:14:52.606 [http-nio-8080-exec-1] INFO  o.a.kafka.common.utils.AppInfoParser.<init> - Kafka version: 3.7.1
+22-10-2024 13:14:52.606 [http-nio-8080-exec-1] INFO  o.a.kafka.common.utils.AppInfoParser.<init> - Kafka commitId: e2494e6ffb89f828
+22-10-2024 13:14:52.606 [http-nio-8080-exec-1] INFO  o.a.kafka.common.utils.AppInfoParser.<init> - Kafka startTimeMs: 1729577692606
+22-10-2024 13:14:52.905 [kafka-producer-network-thread | auth-service-producer-1] INFO  org.apache.kafka.clients.Metadata.update - [Producer clientId=auth-service-producer-1] Cluster ID: o7hkKbKZTQqE55guqDiOTg
+22-10-2024 13:14:53.270 [kafka-producer-network-thread | auth-service-producer-1] INFO  o.a.k.c.p.i.TransactionManager.setProducerIdAndEpoch - [Producer clientId=auth-service-producer-1] ProducerId set to 2000 with epoch 0
+22-10-2024 13:16:29.560 [http-nio-8080-exec-10] INFO  s.a.controller.UserController.login - API login called
+22-10-2024 13:16:29.576 [http-nio-8080-exec-10] INFO  s.a.controller.UserController.login - Data:
+	Username: admin
+	Password: admin
+22-10-2024 13:23:53.002 [kafka-producer-network-thread | auth-service-producer-1] INFO  o.apache.kafka.clients.NetworkClient.handleDisconnections - [Producer clientId=auth-service-producer-1] Node -1 disconnected.
+22-10-2024 13:25:52.951 [kafka-producer-network-thread | auth-service-producer-1] INFO  o.apache.kafka.clients.NetworkClient.handleDisconnections - [Producer clientId=auth-service-producer-1] Node 3 disconnected.
+22-10-2024 13:33:23.023 [kafka-producer-network-thread | auth-service-producer-1] INFO  o.apache.kafka.clients.NetworkClient.handleDisconnections - [Producer clientId=auth-service-producer-1] Node 2 disconnected.
+22-10-2024 13:33:53.029 [kafka-producer-network-thread | auth-service-producer-1] INFO  o.apache.kafka.clients.NetworkClient.handleDisconnections - [Producer clientId=auth-service-producer-1] Node -1 disconnected.
+22-10-2024 13:38:47.922 [http-nio-8080-exec-3] INFO  s.a.controller.UserController.login - API login called
+22-10-2024 13:38:48.083 [http-nio-8080-exec-3] INFO  s.a.controller.UserController.login - Data:
+	Username: admin
+	Password: admin
+22-10-2024 13:39:43.435 [http-nio-8080-exec-1] INFO  s.a.controller.UserController.login - API login called
+22-10-2024 13:39:43.446 [http-nio-8080-exec-1] INFO  s.a.controller.UserController.login - Data:
+	Username: admin
+	Password: admin
+22-10-2024 13:46:05.620 [SpringApplicationShutdownHook] INFO  o.a.k.clients.producer.KafkaProducer.close - [Producer clientId=auth-service-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+22-10-2024 13:46:05.648 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics.close - Metrics scheduler closed
+22-10-2024 13:46:05.648 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics.close - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+22-10-2024 13:46:05.648 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics.close - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+22-10-2024 13:46:05.650 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics.close - Metrics reporters closed
+22-10-2024 13:46:05.653 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.utils.AppInfoParser.unregisterAppInfo - App info kafka.producer for auth-service-producer-1 unregistered
+22-10-2024 13:46:05.665 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+22-10-2024 13:46:05.702 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+22-10-2024 13:46:05.724 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.

@@ -33,7 +33,7 @@ public class AuthServiceApplication {
 	@Bean
 	NewTopic history() {
 		return new NewTopic(
-				"history-event",
+				"logs",
 				3,
 				(short) 1
 		);

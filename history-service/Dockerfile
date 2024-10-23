@@ -1,5 +1,13 @@
 FROM openjdk:17
-VOLUME /tmp
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+# Set the working directory in the container
+WORKDIR /history-service
+
+# Sao chép file JAR của ứng dụng vào container
+COPY target/*.jar history-service.jar
+
+# Expose cổng mà ứng dụng Spring Boot sẽ chạy
+EXPOSE 8082
+
+# Câu lệnh để chạy ứng dụng
+CMD ["java", "-jar", "history-service.jar"]
